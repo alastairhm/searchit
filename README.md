@@ -7,6 +7,7 @@ pip install -r requirements.txt
 
 # Help
 
+search.py
 search.py --help
 
 # Your Default engine
@@ -18,4 +19,7 @@ search.py search "terraform templates" --engine=bing
 
 # Search for paste buffer contents
 search.py search
+
+# List available engines
+search.py engines
 ```
