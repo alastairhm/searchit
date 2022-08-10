@@ -14,12 +14,13 @@ class WebSearch:
         """Init"""
         script_path = os.path.dirname(os.path.abspath(__file__))
         self.settings = toml.load(os.path.join(script_path, "searchIt.toml"))
+        self.default_url = self.settings[self.settings['default']]
 
         if engine == 'default':
             self.engine = self.settings[engine]
         else:
             self.engine = engine
-        self.search_url = self.settings[self.engine]
+        self.search_url = self.settings.get(self.engine, self.default_url)
 
     def search(self, term=pyperclip.paste()):
         """Search"""
