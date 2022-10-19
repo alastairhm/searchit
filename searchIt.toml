@@ -7,3 +7,5 @@ gmaps = "https://www.google.com/maps/place/"
 google = "https://www.google.com/search?q="
 searx = "https://searx.org/search?q="
 startpage = "https://www.startpage.com/sp/search?q="
+wiki = "https://en.wikipedia.org/wiki/Special:Search?go=Go&search="
+
