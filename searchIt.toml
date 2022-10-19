@@ -1,4 +1,4 @@
-default = "duckduck"
+default = "bing"
 bing = "https://bing.com/search?q="
 brave = "https://search.brave.com/search?q="
 duckduck = "https://duckduckgo.com/?q="
