@@ -24,13 +24,19 @@ class WebSearch:
         self.search_url = self.settings.get(self.engine, self.default_url)
 
     def search(self, term=pyperclip.paste()):
-        """Search"""
+        """Search passed term or clipboard value"""
         webbrowser.open(self.search_url + term)
 
     def engines(self):
         """Output Engines"""
         for name in self.settings:
             print(name)
+
+    def all(self, term=pyperclip.paste()):
+        """Search using all defined search engines"""
+        for key, values in self.settings.items():
+            if key != "default":
+                webbrowser.open(values + term)
 
 
 if __name__ == "__main__":
