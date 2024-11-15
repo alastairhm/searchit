@@ -5,6 +5,7 @@ import os
 import fire
 import subprocess
 import toml
+import webbrowser
 
 
 class WebSearch:
