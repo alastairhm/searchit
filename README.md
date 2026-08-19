@@ -20,4 +20,11 @@ search.py search "terraform templates"
 
 # List available engines
 ./search.py engines
+
+# Search using every configured engine at once
+./search.py all "terraform templates"
+
+# Run tests
+pip install -r requirements-dev.txt
+pytest
 ```

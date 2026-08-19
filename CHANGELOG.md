@@ -6,6 +6,8 @@ All notable changes to this project are documented in this file.
 
 ### Added
 - `CLAUDE.md` documenting how to run the CLI and the architecture of `search.py` / `searchIt.toml`, for Claude Code sessions working in this repo.
+- `test_search.py`, a `pytest` suite covering engine resolution, URL encoding, `all()`'s reserved-key filtering, and both branches of `browse()`, plus `requirements-dev.txt` to install `pytest`. Run with `pip install -r requirements-dev.txt && pytest`.
+- README example for the `all` command (search every configured engine at once), which existed but wasn't documented.
 
 ### Fixed
 - **Security:** removed a shell-injection vector in `browse()` — the WSL browser launch used `subprocess.Popen(..., shell=True)` with an unescaped URL built from the raw search term, so a term containing `"`, backticks, or `$()` could run arbitrary shell commands. It now passes the browser path and URL as separate argv entries with no shell involved.
