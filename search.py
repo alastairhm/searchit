@@ -7,6 +7,7 @@ import subprocess
 import toml
 import webbrowser
 import platform
+import urllib.parse
 
 
 class WebSearch:
@@ -31,15 +32,16 @@ class WebSearch:
 
     def browse(self, url):
         if self.wsl:
-            command = f'"{self.browser_path}" "{url}"'
-            subprocess.Popen(command, shell=True)
+            # Pass the browser and URL as separate argv entries (no shell=True)
+            # so a search term can never be interpreted as shell syntax.
+            subprocess.Popen([self.browser_path, url])
         else:
             webbrowser.open(url)
 
     #def search(self, term=pyperclip.paste()):
     def search(self, term):
         """Search passed term"""
-        url = self.search_url + term
+        url = self.search_url + urllib.parse.quote_plus(term)
         self.browse(url)
 
     def engines(self):
@@ -49,9 +51,11 @@ class WebSearch:
 
     def all(self, term):
         """Search using all defined search engines"""
+        encoded_term = urllib.parse.quote_plus(term)
+        reserved_keys = ("default", "browser")
         for key, values in self.settings.items():
-            if key != "default":
-                webbrowser.open(values + term)
+            if key not in reserved_keys:
+                self.browse(values + encoded_term)
 
 
 if __name__ == "__main__":
