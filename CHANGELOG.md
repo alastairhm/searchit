@@ -14,3 +14,6 @@ All notable changes to this project are documented in this file.
 
 ### Chore
 - `.gitignore` now excludes `__pycache__/` and `*.pyc`, so bytecode from local test runs doesn't show up as untracked files.
+
+### Removed
+- The non-functional clipboard/paste-buffer search option: dropped the unused `pyperclip` dependency from `requirements.txt`, the dead commented-out `pyperclip.paste()` line in `search.py`, and the README example that documented `./search.py search` (no args) as searching the paste buffer — it actually errored, since the feature was never wired up.

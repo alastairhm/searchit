@@ -38,7 +38,6 @@ class WebSearch:
         else:
             webbrowser.open(url)
 
-    #def search(self, term=pyperclip.paste()):
     def search(self, term):
         """Search passed term"""
         url = self.search_url + urllib.parse.quote_plus(term)
