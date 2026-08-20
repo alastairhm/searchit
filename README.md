@@ -28,3 +28,7 @@ search.py search "terraform templates"
 pip install -r requirements-dev.txt
 pytest
 ```
+
+## On the blog
+
+* https://blog.0x32.co.uk/posts/searchit/
